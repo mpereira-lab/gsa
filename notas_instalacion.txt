@@ -1,0 +1,12 @@
+instalacion windows
+
+prunsrv.exe es gsa.exe
+
+para el i764 tuve que poner el de amd porque el de ia64 no funciona
+prunmgr.exe es el mismo para todos
+elegir prunsrv.exe segun arquitectura de la maquina
+
+compilar mvn clean install
+
+para distribuir, copiar carpeta de gsa-package.zip en c:\SistemaBGS (o sea queda c:\SistemaBGS\gsa\....)
+Luego correr install del bin. Corregir el bat para ubicar el jvm.dll de la maquina (la virtual machine)

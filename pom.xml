@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- para compilacion se debe definir variable de entorno JMETER_HOME que 
+	apunte a directorio raiz de jmeter. Ej: -->
+<!-- JMETER_HOME: c:\Users\mpereira\App\apache-jmeter-5.4.3\ -->
+<!-- al compilar, se copia el jar en el directorio c:\Users\mpereira\App\apache-jmeter-5.4.3\lib\ext 
+	el cual es el directorio de plugins de jmeter -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ar.com.mp</groupId>
+	<artifactId>gsa</artifactId>
+	<version>1.0.0</version>
+	<name>gsp-server-authorization</name>
+	<description>gsp-server-authorization</description>
+	<properties>
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<name>nexus</name>
+			<url>http://ArBAVSDSwFNEX01.SwF.boldt.com.ar:8081/repository/maven-public/
+			</url>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>nexus-releases</id>
+			<name>Releases</name>
+			<url>http://ArBAVSDSwFNEX01.SwF.boldt.com.ar:8081/repository/bgsc2-maven2/
+			</url>
+		</repository>
+	</distributionManagement>
+	<dependencies>
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<archive>
+			            <manifest>
+			              <addClasspath>true</addClasspath>
+			              <mainClass>ar.com.mp.Main</mainClass>
+			            </manifest>						
+					</archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			
+            <plugin>  
+                <groupId>org.apache.maven.plugins</groupId>  
+                <artifactId>maven-assembly-plugin</artifactId>  
+                <configuration>  
+                    <descriptors>  
+                        <descriptor>maven_assembly_conf.xml</descriptor>  
+                    </descriptors>  
+                </configuration>  
+                <executions>  
+                    <execution>  
+                        <phase>package</phase>  
+                        <goals>  
+                            <goal>single</goal>  
+                        </goals>  
+                    </execution>  
+                </executions>  
+            </plugin>  
+		</plugins>
+	</build>
+</project>

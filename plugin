@@ -1,0 +1,22 @@
+curl --insecure -vvI https://127.0.0.1 2>&1 | awk 'BEGIN { cert=0 } /^\* SSL connection/ { cert=1 } /^\*/ { if (cert) print }'
+
+--------------------
+clave de todos los ks: changeit
+
+cacerts esta en jdk/jre/lib/security
+
+directorio de trabajo es c:\tmp
+
+shell es git bash
+
+- delete cacert
+	keytool -delete -alias gsa-server -keystore cacerts
+
+- generar ks.jks para el jar que va en src/main/resources en el server
+	keytool -genkey -alias gsa-server -keyalg RSA -keypass changeit -storepass changeit -keystore ks.jks -ext san=ip:127.0.0.1,dns:localhost,ip:172.20.40.220
+- exportar cacert para importar en el cliente 
+	 keytool -export -alias gsa-server -storepass changeit -file server.cer -keystore ks.jks -ext san=ip:127.0.0.1,dns:localhost,ip:172.20.40.220
+- importar server.cer en el cliente
+	keytool -import -alias gsa-server -keystore /c/Users/mpereira/App/jdk-1.8.0_331/jre/lib/security/cacerts -file /c/tmp/server.cer
+
+
