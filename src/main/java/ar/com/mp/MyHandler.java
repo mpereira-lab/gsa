@@ -21,6 +21,8 @@ public class MyHandler implements HttpHandler{
 		servers.add("172.20.226.47:27001");
 		servers.add("172.20.40.220:27000");
 		servers.add("172.20.40.220:27001");
+		servers.add("172.20.50.60:27000");
+		servers.add("172.20.50.60:27001");
 		servers.add("172.20.50.61:27000");
 		servers.add("172.20.50.61:27001");
 		servers.add("172.20.50.62:27000");
@@ -35,6 +37,34 @@ public class MyHandler implements HttpHandler{
 		servers.add("172.20.50.33:27001");
 		servers.add("172.20.50.34:27000");
 		servers.add("172.20.50.34:27001");
+		servers.add("172.20.0.93:27000");
+		servers.add("172.20.0.93:27001");
+		
+		servers.add("127.0.0.1:27002");
+		servers.add("127.0.0.1:27003");
+		servers.add("172.20.226.47:27002");
+		servers.add("172.20.226.47:27003");
+		servers.add("172.20.40.220:27002");
+		servers.add("172.20.40.220:27003");
+		servers.add("172.20.50.60:27002");
+		servers.add("172.20.50.60:27003");
+		servers.add("172.20.50.61:27002");
+		servers.add("172.20.50.61:27003");
+		servers.add("172.20.50.62:27002");
+		servers.add("172.20.50.62:27003");
+		servers.add("172.20.50.30:27002");
+		servers.add("172.20.50.30:27003");
+		servers.add("172.20.50.31:27002");
+		servers.add("172.20.50.31:27003");
+		servers.add("172.20.50.32:27002");
+		servers.add("172.20.50.32:27003");
+		servers.add("172.20.50.33:27002");
+		servers.add("172.20.50.33:27003");
+		servers.add("172.20.50.34:27002");
+		servers.add("172.20.50.34:27003");
+		servers.add("172.20.0.93:27002");
+		servers.add("172.20.0.93:27003");
+		
 	}
 	
 	@Override
